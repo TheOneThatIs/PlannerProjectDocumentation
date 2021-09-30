@@ -1,0 +1,19 @@
+\hypertarget{_image_component_8h_source}{}\doxysection{Image\+Component.\+h}
+\label{_image_component_8h_source}\index{Planner Program/Source/Graphics/Components/ImageComponent.h@{Planner Program/Source/Graphics/Components/ImageComponent.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_image_component_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_image_component_8h_source_l00002}00002 \textcolor{preprocessor}{\#include "{}IComponent.h"{}}}
+\DoxyCodeLine{\Hypertarget{_image_component_8h_source_l00003}00003 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{_image_component_8h_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{_image_component_8h_source_l00005}\mbox{\hyperlink{class_image_component}{00005}} \textcolor{keyword}{class }\mbox{\hyperlink{class_image_component}{ImageComponent}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_i_component}{IComponent}}\{}
+\DoxyCodeLine{\Hypertarget{_image_component_8h_source_l00006}00006 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_image_component_8h_source_l00007}00007     std::string filepath;}
+\DoxyCodeLine{\Hypertarget{_image_component_8h_source_l00008}00008     sf::Texture texture;}
+\DoxyCodeLine{\Hypertarget{_image_component_8h_source_l00009}00009     sf::Sprite sprite;}
+\DoxyCodeLine{\Hypertarget{_image_component_8h_source_l00010}00010 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_image_component_8h_source_l00011}00011     \mbox{\hyperlink{class_image_component}{ImageComponent}}(std::string filepath, \textcolor{keywordtype}{int} x = 0, \textcolor{keywordtype}{int} y = 0, \textcolor{keywordtype}{int} z = 0);}
+\DoxyCodeLine{\Hypertarget{_image_component_8h_source_l00012}00012     sf::Sprite* getSprite();}
+\DoxyCodeLine{\Hypertarget{_image_component_8h_source_l00013}00013 \};}
+
+\end{DoxyCode}

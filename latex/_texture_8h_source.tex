@@ -1,0 +1,27 @@
+\hypertarget{_texture_8h_source}{}\doxysection{Texture.\+h}
+\label{_texture_8h_source}\index{Lost/Source/Lost/Graphics/Texture.h@{Lost/Source/Lost/Graphics/Texture.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include"{}Renderer.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include<string>}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{keyword}{namespace }Lost \{}
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_lost_1_1_texture}{Texture}} \{}
+\DoxyCodeLine{7     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} textureID;}
+\DoxyCodeLine{8     std::string filepath;}
+\DoxyCodeLine{9     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *localBuffer;}
+\DoxyCodeLine{10     \textcolor{keywordtype}{int} width, height, bitsPerPixel;}
+\DoxyCodeLine{11 \textcolor{keyword}{public}:}
+\DoxyCodeLine{12     \mbox{\hyperlink{class_lost_1_1_texture}{Texture}}(\textcolor{keyword}{const} std::string \&filepath);}
+\DoxyCodeLine{13     \mbox{\hyperlink{class_lost_1_1_texture}{\string~Texture}}();}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \textcolor{keywordtype}{void} bind(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} slot = 0) \textcolor{keyword}{const};}
+\DoxyCodeLine{16     \textcolor{keywordtype}{void} unbind() \textcolor{keyword}{const};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} getWidth() \textcolor{keyword}{const};}
+\DoxyCodeLine{19     \textcolor{keyword}{inline} \textcolor{keywordtype}{int} getHeight() \textcolor{keyword}{const};}
+\DoxyCodeLine{20 \};}
+\DoxyCodeLine{21 \}}
+
+\end{DoxyCode}

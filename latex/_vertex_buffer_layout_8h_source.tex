@@ -1,0 +1,70 @@
+\hypertarget{_vertex_buffer_layout_8h_source}{}\doxysection{Vertex\+Buffer\+Layout.\+h}
+\label{_vertex_buffer_layout_8h_source}\index{Lost/Source/Lost/Graphics/VertexBufferLayout.h@{Lost/Source/Lost/Graphics/VertexBufferLayout.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include<vector>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include"{}Renderer.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include<GL/glew.h>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{namespace }Lost \{}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_lost_1_1_vertex_buffer_element}{VertexBufferElement}} \{}
+\DoxyCodeLine{9     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} type;}
+\DoxyCodeLine{10     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} count;}
+\DoxyCodeLine{11     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} isNormalized;}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13     \textcolor{keyword}{static} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} getTypeSize(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} type) \{}
+\DoxyCodeLine{14         \textcolor{keywordflow}{switch}(type) \{}
+\DoxyCodeLine{15             \textcolor{keywordflow}{case} GL\_FLOAT:}
+\DoxyCodeLine{16                 \textcolor{keywordflow}{return} 4;}
+\DoxyCodeLine{17             \textcolor{keywordflow}{case} GL\_UNSIGNED\_INT:}
+\DoxyCodeLine{18                 \textcolor{keywordflow}{return} 4;}
+\DoxyCodeLine{19             \textcolor{keywordflow}{case} GL\_UNSIGNED\_BYTE:}
+\DoxyCodeLine{20                 \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{21         \}}
+\DoxyCodeLine{22         ASSERT(\textcolor{keyword}{false});}
+\DoxyCodeLine{23         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{24     \}}
+\DoxyCodeLine{25 \};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{class_lost_1_1_vertex_buffer_layout}{VertexBufferLayout}} \{}
+\DoxyCodeLine{28     std::vector<VertexBufferElement> elements;}
+\DoxyCodeLine{29     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} stride;}
+\DoxyCodeLine{30 \textcolor{keyword}{public}:}
+\DoxyCodeLine{31     \mbox{\hyperlink{class_lost_1_1_vertex_buffer_layout}{VertexBufferLayout}}() : stride(0) \{\}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} push(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} count) \{}
+\DoxyCodeLine{35         \textcolor{keyword}{static\_assert}(\textcolor{keyword}{false});}
+\DoxyCodeLine{36     \}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keyword}{template}<>}
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} push<float>(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} count) \{}
+\DoxyCodeLine{40         elements.push\_back(\{ GL\_FLOAT, count, GL\_FALSE \});}
+\DoxyCodeLine{41         stride += VertexBufferElement::getTypeSize(GL\_FLOAT) * count;}
+\DoxyCodeLine{42     \}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keyword}{template}<>}
+\DoxyCodeLine{45     \textcolor{keywordtype}{void} push<unsigned int>(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} count) \{}
+\DoxyCodeLine{46         elements.push\_back(\{ GL\_UNSIGNED\_INT, count, GL\_FALSE \});}
+\DoxyCodeLine{47         stride += VertexBufferElement::getTypeSize(GL\_UNSIGNED\_INT) * count;}
+\DoxyCodeLine{48     \}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keyword}{template}<>}
+\DoxyCodeLine{51     \textcolor{keywordtype}{void} push<unsigned char>(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} count) \{}
+\DoxyCodeLine{52         elements.push\_back(\{ GL\_BYTE, count, GL\_TRUE \});}
+\DoxyCodeLine{53         stride += VertexBufferElement::getTypeSize(GL\_BYTE) * count;}
+\DoxyCodeLine{54     \}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keyword}{inline} \textcolor{keyword}{const} std::vector<VertexBufferElement> \&getElements()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{57         \textcolor{keywordflow}{return} elements;}
+\DoxyCodeLine{58     \}}
+\DoxyCodeLine{59     \textcolor{keyword}{inline} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} getStride()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{60         \textcolor{keywordflow}{return} stride;}
+\DoxyCodeLine{61     \}}
+\DoxyCodeLine{62 \};}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \}}
+
+\end{DoxyCode}

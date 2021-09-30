@@ -1,0 +1,39 @@
+\hypertarget{_board_8cpp_source}{}\doxysection{Board.\+cpp}
+\label{_board_8cpp_source}\index{Planner Program/Source/Board.cpp@{Planner Program/Source/Board.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include"{}Board.h"{}}}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00002}00002 \textcolor{preprocessor}{\#include<iostream>}}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00005}00005 Board::Board(\textcolor{keywordtype}{int} width, \textcolor{keywordtype}{int} height, std::string name) : window(sf::VideoMode(width, height), name) \{}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00006}00006     components.emplace\_back(\textcolor{keyword}{new} \mbox{\hyperlink{class_image_component}{ImageComponent}}(\textcolor{stringliteral}{"{}Resources/Textures/TestImage.png"{}}, 10, 200));}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00007}00007 \}}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00009}00009 \textcolor{keywordtype}{void} Board::render() \{}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00010}00010     window.clear();}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00012}00012     window.draw(*components[0]-\/>getSprite());}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00014}00014     window.display();}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00015}00015 \}}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00017}00017 \textcolor{keywordtype}{void} Board::update() \{}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00018}00018     sf::Event event;}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00019}00019     \textcolor{keywordflow}{while}(window.pollEvent(event)) \{}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00020}00020         \textcolor{keywordflow}{switch}(event.type) \{}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00021}00021             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i <= components.size(); i++) \{}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00022}00022                 components[i]-\/>update();}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00023}00023             \}}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00024}00024             \textcolor{keywordflow}{case} sf::Event::Closed:}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00025}00025                 window.close();}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00026}00026                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00027}00027         \}}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00028}00028     \}}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00029}00029 \}}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00031}00031 sf::RenderWindow* Board::getWindow() \{}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00032}00032     \textcolor{keywordflow}{return} \&window;}
+\DoxyCodeLine{\Hypertarget{_board_8cpp_source_l00033}00033 \}}
+
+\end{DoxyCode}
